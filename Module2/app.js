@@ -1,6 +1,7 @@
 const express=require("express");
 const app=express();
 const Path=require("path");
+const mongoose=require("mongoose");
 const userModel=require("./models/user");
 
 // Middleware
