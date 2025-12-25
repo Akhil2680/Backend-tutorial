@@ -33,6 +33,18 @@ app.post('/create', async (req, res) => {
    res.send(createdUser);
 }); 
 
+
+app.get('/delete/:id', async (req, res) => {
+ 
+  let users = await userModel.findByIdAndDelete({_id: req.params.id});
+   res.redirect('/read');
+});
+
+// Start the server
+
+
+
+
 app.listen(3000,()=>{   
    console.log("Server is running on port 3000");
 });
