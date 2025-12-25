@@ -1,7 +1,7 @@
 const express=require("express");
 const app=express();
 const Path=require("path");
-
+const mongoose=require("mongoose");
 // Middleware
 app.set("view engine","ejs");
 app.use(express.json());
