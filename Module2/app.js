@@ -2,6 +2,8 @@ const express=require("express");
 const app=express();
 const Path=require("path");
 const mongoose=require("mongoose");
+const userModel=require("./models/user");
+
 // Middleware
 app.set("view engine","ejs");
 app.use(express.json());
@@ -14,7 +16,22 @@ app.use(express.static("public"));
 
 // Route: Show register page
 app.get("/",(req,res)=>{
-   res.render("index");
+   res.render("index"); 
+}); 
+
+app.get('/read', async (req, res) => {
+   let allUsers = await userModel.find({});
+   res.render("read", { users: allUsers });
+}); 
+
+app.post('/create', async (req, res) => {
+  let {name, email, image}=req.body;
+  let createdUser = await userModel.create({
+     name,
+     email,
+     image
+});
+   res.send(createdUser);
 }); 
 
 
