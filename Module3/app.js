@@ -13,3 +13,18 @@ app.use(express.static("public"));
 app.get("/",(req,res)=>{
    res.render("index"); 
 });
+
+app.get('/products', async (req, res) => {
+   let allProducts = await productModel.find({});
+   res.render("products", { products: allProducts });
+});
+
+app.post('/add-product', async (req, res) => {
+  let {name, price, description}=req.body;
+  let createdProduct = await productModel.create({
+     name,
+     price,
+     description
+});
+   res.send(createdProduct);
+});
