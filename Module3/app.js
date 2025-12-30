@@ -28,3 +28,7 @@ app.post('/add-product', async (req, res) => {
 });
    res.send(createdProduct);
 });
+
+app.listen(3000,()=>{
+   console.log("Server is running on http://localhost:3000");
+});
