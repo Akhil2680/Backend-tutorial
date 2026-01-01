@@ -29,6 +29,14 @@ app.post('/add-product', async (req, res) => {
    res.send(createdProduct);
 });
 
+app.post('/delete-product/:id', async (req, res) => {
+   let productId = req.params.id;
+   await productModel.findByIdAndDelete(productId);
+   res.redirect('/products');
+});
+
+// Start the server
+
 app.listen(3000,()=>{
    console.log("Server is running on http://localhost:3000");
 });
