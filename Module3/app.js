@@ -35,7 +35,13 @@ app.post('/delete-product/:id', async (req, res) => {
    res.redirect('/products');
 });
 
+app.post('/update-product/:id', async (req, res) => {
+   let productId = req.params.id;
+   let {name, price, description} = req.body;   
+
 // Start the server
+
+
 
 app.listen(3000,()=>{
    console.log("Server is running on http://localhost:3000");
