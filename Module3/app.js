@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
   console.log('Decoded:', decoded);
   res.send('Hello World!');
 });
+app.use(cookieParser());
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
